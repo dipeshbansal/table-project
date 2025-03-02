@@ -100,6 +100,8 @@ function renderPage(page) {
 
 function renderLoadingState() {
     tableBody.innerHTML = ""
+    tableBody.setAttribute("aria-busy", "true")
+    
     for (let i = 0; i < itemsPerPage; i++) {
         const row = document.createElement("tr")
         for (let j = 0; j < 3; j++) {
@@ -120,6 +122,7 @@ function renderEmptyState() {
     cell.colSpan = 3
     cell.className = "empty-state"
     cell.textContent = "No projects found"
+    cell.setAttribute("role", "alert")
     row.appendChild(cell)
     tableBody.appendChild(row)
 }
@@ -144,8 +147,9 @@ function renderPagination() {
             const pageButton = document.createElement("button")
             pageButton.className = `page-number ${i === currentPage ? "active" : ""}`
             pageButton.textContent = i
-            pageButton.setAttribute("aria-label", `Page ${i}`)
-
+            pageButton.setAttribute("role", "button");
+            pageButton.setAttribute("aria-label", `Go to page ${i}`);
+            
             if (i === currentPage) {
                 pageButton.setAttribute("aria-current", "page")
             }

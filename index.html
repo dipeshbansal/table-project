@@ -13,15 +13,15 @@
     <div class="table-container">
       <!-- Table -->
       <div class="table-wrapper">
-        <table id="funding-table">
+        <table id="funding-table" aria-label="Project Funding Data">
           <thead>
             <tr>
-              <th class="col-sno">S.No.</th>
-              <th class="col-percentage">Percentage funded</th>
-              <th class="col-amount">Amount pledged</th>
+              <th scope="col" class="col-sno">S.No.</th>
+              <th scope="col" class="col-percentage">Percentage funded</th>
+              <th scope="col" class="col-amount">Amount pledged</th>
             </tr>
           </thead>
-          <tbody id="table-body">
+          <tbody id="table-body" aria-live="polite">
             <!-- Adding Rows in table-->
           </tbody>
         </table>
@@ -33,7 +33,7 @@
         </div>
         
         <div class="pagination-controls">
-          <button id="prev-page" class="pagination-button" aria-label="Previous page" disabled>
+          <button id="prev-page" class="pagination-button" aria-label="Previous page" disabled aria-controls="project-table">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
           
@@ -41,7 +41,7 @@
             
           </div>
           
-          <button id="next-page" class="pagination-button" aria-label="Next page">
+          <button id="next-page" class="pagination-button" aria-label="Next page" aria-controls="project-table">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
