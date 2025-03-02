@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Funding Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Project Funding Data</h1>
+    
+    <div class="table-container">
+      <!-- Table -->
+      <div class="table-wrapper">
+        <table id="funding-table">
+          <thead>
+            <tr>
+              <th class="col-sno">S.No.</th>
+              <th class="col-percentage">Percentage funded</th>
+              <th class="col-amount">Amount pledged</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Table rows will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="pagination-container">
+        <div class="pagination-info">
+          Showing <span id="start-record">1</span> to <span id="end-record">5</span> of <span id="total-records">0</span> projects
+        </div>
+        
+        <div class="pagination-controls">
+          <button id="prev-page" class="pagination-button" aria-label="Previous page" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          
+          <div id="page-numbers" class="page-numbers">
+            
+          </div>
+          
+          <button id="next-page" class="pagination-button" aria-label="Next page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
