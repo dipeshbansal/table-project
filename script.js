@@ -11,6 +11,7 @@ const startRecordElement = document.getElementById("start-record")
 const endRecordElement = document.getElementById("end-record")
 const totalRecordsElement = document.getElementById("total-records")
 
+//fetches data from api
 async function fetchProjectData() {
     try {
         isLoading = true
@@ -45,6 +46,7 @@ function getCurrentPageData(page) {
     return projectData.slice(startIndex, endIndex)
 }
 
+//render page 
 function renderPage(page) {
     tableBody.innerHTML = ""
 
@@ -98,6 +100,7 @@ function renderPage(page) {
     updatePaginationInfo(page)
 }
 
+//maintain loading state
 function renderLoadingState() {
     tableBody.innerHTML = ""
     tableBody.setAttribute("aria-busy", "true")
@@ -115,6 +118,7 @@ function renderLoadingState() {
     }
 }
 
+//if no data is available
 function renderEmptyState() {
     tableBody.innerHTML = ""
     const row = document.createElement("tr")
@@ -135,6 +139,7 @@ function updatePaginationInfo(page) {
     endRecordElement.textContent = endRecord
 }
 
+//pagination handled in this 
 function renderPagination() {
     pageNumbersContainer.innerHTML = ""
 
