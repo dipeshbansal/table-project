@@ -21,7 +21,8 @@ async function fetchProjectData() {
             .then(data => {
                 if (Array.isArray(data)) {
                     console.log("Valid Array:", data);
-                    projectData = data;  // Store fetched data
+                    projectData = data;
+                    totalRecordsElement.textContent = projectData.length
                     renderPage(currentPage);
                     renderPagination()
 
@@ -58,11 +59,11 @@ function renderPage(page) {
         return
     }
 
-    currentData.forEach((project) => {
+    currentData.forEach((project, index) => {
         const row = document.createElement("tr")
 
         const snoCell = document.createElement("td")
-        snoCell.textContent = project["s.no"]
+        snoCell.textContent = (page - 1) * itemsPerPage + index + 1
         row.appendChild(snoCell)
 
         const percentageCell = document.createElement("td")
@@ -166,6 +167,8 @@ function renderPagination() {
 }
 
 function handlePageChange(pageNumber) {
+    if (isLoading) return
+
     isLoading = true
     renderPage(currentPage)
     renderPagination()
@@ -190,5 +193,7 @@ function goToNextPage() {
         handlePageChange(currentPage + 1)
     }
 }
+prevPageButton.addEventListener("click", goToPreviousPage)
+nextPageButton.addEventListener("click", goToNextPage)
 
 document.addEventListener("DOMContentLoaded", fetchProjectData)
